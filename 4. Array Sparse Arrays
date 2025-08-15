@@ -1,0 +1,13 @@
+
+vector<int> matchingStrings(vector<string> stringList, vector<string> queries) {
+vector<int>results;
+unordered_map<string,int>freq;
+ for(auto &s:stringList){
+    freq[s]++;
+ }
+ results.reserve(queries.size());
+ for(auto &q:queries){
+    results.push_back(freq[q]);
+ }
+return results;
+}
