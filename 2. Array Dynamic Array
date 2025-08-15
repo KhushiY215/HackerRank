@@ -1,0 +1,25 @@
+
+vector<int> dynamicArray(int n, vector<vector<int>> queries) {
+    vector<vector<int>> arr(n);
+    vector<int> results;
+    int idx;
+    int la=0;
+    for(auto &q:queries){
+        int type=q[0];
+        int x=q[1];
+        int y=q[2];
+        
+        if(type==1){
+        idx=(x ^ la)%n;
+        arr[idx].push_back(y);
+    }
+    else if(type==2){
+        idx=(x ^ la)%n;
+        int sz=arr.size();
+        la=arr[idx][y%sz];
+        results.push_back(la);
+    }
+    }
+    return results;
+    
+}
